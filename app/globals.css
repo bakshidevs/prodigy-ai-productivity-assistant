@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
 /* 
 :root {
   --background: #ffffff;
@@ -15,7 +16,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0a0a0a; 
     --foreground: #ededed;
   }
 }
@@ -28,6 +29,12 @@ body {
 
 @layer base {
   li {
-    @apply p-1 hover:bg-gray-200 rounded-md cursor-pointer;
+    @apply p-1 hover:bg-gray-200 rounded-md cursor-pointer flex items-center gap-2;
+  }
+}
+
+@layer components {
+  .lucide {
+    @apply h-5 w-5;
   }
 }
