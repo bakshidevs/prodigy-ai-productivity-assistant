@@ -15,9 +15,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Prodigy - An AI Productivity Assistant",
   description: "Developed and maintained by BakshiDevs",
-  icons: {
-    icon: "/favicon.ico",
-  },
   themeColor: "#000000",
   creator: "BakshiDevs",
 
