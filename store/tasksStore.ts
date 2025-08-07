@@ -1,19 +1,22 @@
 import { create } from "zustand";
 
 
-export interface task {
+export interface Task {
     id: string;
     title: string;
     description: string;
+    status: "pending" | "in progress" | "completed";
+    priority: "low" | "medium" | "high";
+    dueDate: string;
     completed: boolean;
 }
 
 interface State {
-    tasks: task[];
+    tasks: Task[];
 }
 
 interface Actions {
-    addTask: (task: task) => void;
+    addTask: (task: Task) => void;
     deleteTask: (id: string) => void;
     updateTask: (id: string, key: string, value: string) => void;
     toggleCompletion: (id: string) => void;
@@ -32,6 +35,7 @@ const useTasksStore = create<TasksStore>((set, get) => ({
         const { tasks } = get();
         set({ tasks: tasks.filter(task => task.id !== id) });
     },
+    // can be updated any value using this function
     updateTask: (id, key, value) => {
         const { tasks } = get();
         set({ tasks: tasks.map(task => task.id === id ? { ...task, [key]: value } : task) });
